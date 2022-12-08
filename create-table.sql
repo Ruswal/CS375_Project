@@ -1,4 +1,10 @@
+-- This file can be used to create tables on the database.
+-- CAUTION: Line 7 can drop tables listed in the query.
+--		You'll lose the data stored in those tables.
+
 use eCom;
+
+DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Users, Category;
 
 CREATE TABLE Users (
 	u_id integer not null auto_increment,
@@ -8,6 +14,12 @@ CREATE TABLE Users (
 	email varchar(255) not null,
 	pswd varchar(32) not null,
 	primary key(u_id)
+);
+
+CREATE TABLE Category(
+	ctgy_id int not null auto_increment,
+	name text not null,
+	primary key (ctgy_id)
 );
 
 CREATE TABLE Addresses(
@@ -21,12 +33,6 @@ CREATE TABLE Addresses(
 	country text,
 	primary key(a_id),
 	foreign key(u_id) references Users(u_id) ON delete cascade
-);
-
-CREATE TABLE Category(
-	ctgy_id int not null auto_increment,
-	name text not null,
-	primary key (ctgy_id)
 );
 
 CREATE TABLE Products(
@@ -47,7 +53,7 @@ CREATE TABLE Orders(
 	status varchar(50),
 	subtotal float not null,
 	primary key (o_id),
-	foreign key(ctgy_id) references Category(ctgy_id)
+	foreign key(u_id) references Users(u_id)
 );
 
 CREATE TABLE Items(
@@ -57,5 +63,37 @@ CREATE TABLE Items(
 	quantity int not null,
 	primary key (i_id),
 	foreign key(p_id) references Products(p_id),
+	foreign key(o_id) references Orders(o_id)
+);
+
+CREATE TABLE Ratings(
+	r_id int not null auto_increment,
+	u_id int not null,
+	p_id int not null,
+	post_dt datetime not null,
+	rating int not null,
+	comment text not null,
+	primary key (r_id),
+	foreign key(u_id) references Users(u_id),
+	foreign key(p_id) references Products(p_id)
+);
+
+CREATE TABLE Shopping_cart(
+	sc_id int not null auto_increment,
+	u_id int not null,
+	p_id int not null,
+	quantity int not null,
+	primary key(sc_id),
+	foreign key (u_id) references Users(u_id),
+	foreign key (p_id) references Products(p_id)
+);
+
+CREATE TABLE Returns(
+	rt_id int auto_increment not null,
+	o_id int not null,
+	reason text not null,
+	status text not null,
+	return_dt DATETIME not null,
+	primary key(rt_id),
 	foreign key(o_id) references Orders(o_id)
 );
