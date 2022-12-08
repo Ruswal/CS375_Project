@@ -1,0 +1,12 @@
+insert into Products (ctgy_id, name, dsc, price) Values (1, 'TV', 999.99);
+insert into Products (ctgy_id, name, dsc, price) Values (1, 'iPhone', 1099.99);
+insert into Products (ctgy_id, name, dsc, price) Values (1, 'Desktop', 699.99);
+insert into Products (ctgy_id, name, dsc, price) Values (2, 'The Fairy Tale', 19.99);
+insert into Products (ctgy_id, name, dsc, price) Values (2, 'The Atomic Habits', 11.99);
+insert into Products (ctgy_id, name, dsc, price) Values (3, 'Tylenol', 25.99);
+insert into Products (ctgy_id, name, dsc, price) Values (3, 'Shower Gel', 9.99);
+insert into Products (ctgy_id, name, dsc, price) Values (3, 'Shampoo', 12.99);
+insert into Products (ctgy_id, name, dsc, price) Values (4, 'BBQ', 229.99);
+insert into Products (ctgy_id, name, dsc, price) Values (4, 'Oven', 1299.99);
+insert into Products (ctgy_id, name, dsc, price) Values (5, 'Hoodie', 29.99);
+insert into Products (ctgy_id, name, dsc, price) Values (1, 'Winter Jacket', 119.99);
