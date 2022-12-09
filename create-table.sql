@@ -6,7 +6,7 @@ use eCom;
 
 declare @last_order_id as int;
 
-DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Users, Category;
+DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Session_variable, Users, Category;
 
 CREATE TABLE Users (
 	u_id integer not null auto_increment,
