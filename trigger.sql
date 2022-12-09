@@ -9,6 +9,8 @@ BEGIN
 END //
 DELIMITER ; 
 
+-- dropped
+drop trigger if exists empty_cart;
 CREATE TRIGGER empty_cart
 AFTER UPDATE ON Items
 FOR EACH ROW 
@@ -16,6 +18,7 @@ DELETE SC FROM Shopping_cart SC
 INNER JOIN Users U, Items I
 WHERE SC.u_id = U.u_id and SC.p_id = I.p_id;
 
+-- dropped
 drop trigger if exists remove_cart_items;
 DELIMITER //
 create trigger remove_cart_items
@@ -25,6 +28,3 @@ begin
 	DELETE FROM Session_variable where u_id = 1;
 end //
 DELIMITER ; 
-
-
-	DELETE SC FROM Shopping_cart SC INNER JOIN Session_variable SV, Items I, Users U WHERE SC.sv_id = SV.sv_id and SC.p_id = I.p_id and SC.u_id = U.u_id and U.u_id = SV.u_id;
