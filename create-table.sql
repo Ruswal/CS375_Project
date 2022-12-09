@@ -4,6 +4,8 @@
 
 use eCom;
 
+declare @last_order_id as int;
+
 DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Users, Category;
 
 CREATE TABLE Users (
@@ -14,6 +16,13 @@ CREATE TABLE Users (
 	email varchar(255) not null,
 	pswd varchar(32) not null,
 	primary key(u_id)
+);
+
+CREATE TABLE Session_variable(
+	sv_id int not null auto_increment,
+	u_id int not null,
+	primary key (sv_id),
+	foreign key (u_id) references Users(u_id) on delete cascade
 );
 
 CREATE TABLE Category(
@@ -59,7 +68,8 @@ CREATE TABLE Orders(
 CREATE TABLE Items(
 	i_id int not null auto_increment,
 	p_id int not null,
-	o_id int not null,
+	o_id int,
+	sv_id int not null,
 	quantity int not null,
 	primary key (i_id),
 	foreign key(p_id) references Products(p_id),
@@ -82,10 +92,12 @@ CREATE TABLE Shopping_cart(
 	sc_id int not null auto_increment,
 	u_id int not null,
 	p_id int not null,
+	sv_id int not null,
 	quantity int not null,
 	primary key(sc_id),
 	foreign key (u_id) references Users(u_id),
-	foreign key (p_id) references Products(p_id)
+	foreign key (p_id) references Products(p_id),
+	foreign key (sv_id) references Session_variable(sv_id) on delete cascade
 );
 
 CREATE TABLE Returns(
@@ -97,3 +109,4 @@ CREATE TABLE Returns(
 	primary key(rt_id),
 	foreign key(o_id) references Orders(o_id)
 );
+
