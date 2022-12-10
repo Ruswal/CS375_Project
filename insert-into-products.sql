@@ -9,4 +9,4 @@ insert into Products (ctgy_id, name, dsc, price) Values (3, 'Shampoo', 'It belon
 insert into Products (ctgy_id, name, dsc, price) Values (4, 'BBQ', 'It belongs to Home and Kitchen', 229.99);
 insert into Products (ctgy_id, name, dsc, price) Values (4, 'Oven', 'It belongs to Home and Kitchen', 1299.99);
 insert into Products (ctgy_id, name, dsc, price) Values (5, 'Hoodie', 'It belongs to Clothing', 29.99);
-insert into Products (ctgy_id, name, dsc, price) Values (1, 'Winter Jacket', 'It belongs to Clothing', 119.99);
+insert into Products (ctgy_id, name, dsc, price) Values (5, 'Winter Jacket', 'It belongs to Clothing', 119.99);
