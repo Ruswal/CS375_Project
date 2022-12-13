@@ -1,0 +1,10 @@
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Fred','Onimoe','FredO','FredO@email.com','pswd1');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Andrew','Petri','AndrewP','AndrewP@email.com','pswd2');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Raj','Wadia','RajW','RajW@email.com','pswd3');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('David','Akinmade','DavidA','DavidA@email.com','pswd4');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Chris','Wright','ChrisW','ChrisW@email.com','pswd5');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Justin','Trudeau','JustinT','JustinT@email.com','pswd6');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Jon','Bellion','JonB','JonB@email.com','pswd7');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Annabel','Jones','AnnabelJ','AnnabelJ@email.com','pswd8');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Tim','Cook','TimC','TimC@email.com','pswd9');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Ricky','Smith','RickyS','RickyS@email.com','pswd10');
