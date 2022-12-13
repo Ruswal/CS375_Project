@@ -36,13 +36,19 @@
           <th>Description</th>
           <th>Price</th>
       </tr>
-    <!--<?php
-        $connection = mysqli_connect('localhost', 'root', '', 'products');
+    <?php
+    require_once("db.php");
+        		try{
+              $db = new PDO($attr, $db_user, $db_pwd, $opts);
+            }catch(PDOException $e){
+              throw new PDOException($e->getMessage(), (int)$e->getCode());
+            }
+        
         $sql = "SELECT p_id, ctgy_id, name, dsc, price, FROM Products";
-        $result = mysqli_query($connection, $sql);
-        if(mysqli_num_rows($result) > 0){
+        $result = $db->query($sql);
+        if($db($result) > 0){
 
-          while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = $result->fetch()) {
             echo '<tr>';
             echo '<td>'. $row['p_id'] .'</td>';
             echo '<td>'. $row['ctgy_id'] .'</td>';
@@ -53,7 +59,7 @@
           }
         }
     ?>
-  </table>-->
+  </table>
 
 <script src="index.js"></script>
   </body>
