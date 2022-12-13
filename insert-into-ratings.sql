@@ -12,23 +12,3 @@ insert into Ratings (u_id, p_id, post_dt, rating, comment) Values
 (9, 3, NOW(), 5, 'Perfect work from home desktop.'),
 (4, 3, NOW(), 4, 'Good for low-mid budget.')
 ;
--- product rating
-insert into Ratings (u_id, p_id, post_dt, rating, comment) Values 
-(),
-;
--- product rating
-insert into Ratings (u_id, p_id, post_dt, rating, comment) Values 
-(),
-;
--- product5 rating
-insert into Ratings (u_id, p_id, post_dt, rating, comment) Values 
-(),
-;
--- product7 rating
-insert into Ratings (u_id, p_id, post_dt, rating, comment) Values 
-(),
-;
--- product9 rating
-insert into Ratings (u_id, p_id, post_dt, rating, comment) Values 
-(),
-;
