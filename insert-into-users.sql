@@ -1,5 +1,5 @@
 insert into Users(f_name, l_name, u_name, email, pswd) Values ('Fred','Onimoe','FredO','FredO@email.com','pswd1');
-insert into Users(f_name, l_name, u_name, email, pswd) Values ('Andrew','Petri','AndrewP','AndrewP@email.com','pswd2');
+insert into Users(f_name, l_name, u_name, email, pswd) Values ('Andrew','Petrie','AndrewP','AndrewP@email.com','pswd2');
 insert into Users(f_name, l_name, u_name, email, pswd) Values ('Raj','Wadia','RajW','RajW@email.com','pswd3');
 insert into Users(f_name, l_name, u_name, email, pswd) Values ('David','Akinmade','DavidA','DavidA@email.com','pswd4');
 insert into Users(f_name, l_name, u_name, email, pswd) Values ('Chris','Wright','ChrisW','ChrisW@email.com','pswd5');
