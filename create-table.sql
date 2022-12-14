@@ -6,7 +6,7 @@ use eCom;
 
 declare @last_order_id as int;
 
-DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Session_variable, Users, Category;
+DROP TABLE IF EXISTS Addresses, Shopping_cart, Items, Returns, Ratings, Orders, Products, Session_variable, Users, Category, Postcodes;
 
 CREATE TABLE Users (
 	u_id integer not null auto_increment,
@@ -31,16 +31,22 @@ CREATE TABLE Category(
 	primary key (ctgy_id)
 );
 
+CREATE TABLE Postcodes(
+	postcode varchar(6) not null, 
+	primary key(postcode),
+	city text not null
+);
+
 CREATE TABLE Addresses(
 	a_id integer not null auto_increment,
 	u_id int not null,
 	line1 text not null,
 	line2 text,
-	city text not null,
 	postcode varchar(6) not null,
 	province varchar(2) not null,
 	country text,
 	primary key(a_id),
+	foreign key(postcode) references Postcodes(postcode),
 	foreign key(u_id) references Users(u_id) ON delete cascade
 );
 
@@ -62,7 +68,7 @@ CREATE TABLE Orders(
 	status varchar(50),
 	subtotal float not null,
 	primary key (o_id),
-	foreign key(u_id) references Users(u_id)
+	foreign key(u_id) references Users(u_id) on delete cascade
 );
 
 CREATE TABLE Items(
@@ -72,8 +78,8 @@ CREATE TABLE Items(
 	sv_id int not null,
 	quantity int not null,
 	primary key (i_id),
-	foreign key(p_id) references Products(p_id),
-	foreign key(o_id) references Orders(o_id)
+	foreign key(p_id) references Products(p_id) on delete cascade,
+	foreign key(o_id) references Orders(o_id) on delete cascade
 );
 
 CREATE TABLE Ratings(
@@ -84,8 +90,8 @@ CREATE TABLE Ratings(
 	rating int not null,
 	comment text not null,
 	primary key (r_id),
-	foreign key(u_id) references Users(u_id),
-	foreign key(p_id) references Products(p_id)
+	foreign key(u_id) references Users(u_id) on delete cascade,
+	foreign key(p_id) references Products(p_id) on delete cascade
 );
 
 CREATE TABLE Shopping_cart(
@@ -95,8 +101,8 @@ CREATE TABLE Shopping_cart(
 	sv_id int not null,
 	quantity int not null,
 	primary key(sc_id),
-	foreign key (u_id) references Users(u_id),
-	foreign key (p_id) references Products(p_id),
+	foreign key (u_id) references Users(u_id) on delete cascade,
+	foreign key (p_id) references Products(p_id) on delete cascade,
 	foreign key (sv_id) references Session_variable(sv_id) on delete cascade
 );
 
@@ -107,6 +113,6 @@ CREATE TABLE Returns(
 	status text not null,
 	return_dt DATETIME not null,
 	primary key(rt_id),
-	foreign key(o_id) references Orders(o_id)
+	foreign key(o_id) references Orders(o_id) on delete cascade
 );
 
