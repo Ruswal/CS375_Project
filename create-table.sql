@@ -68,7 +68,7 @@ CREATE TABLE Orders(
 	status varchar(50),
 	subtotal float not null,
 	primary key (o_id),
-	foreign key(u_id) references Users(u_id)
+	foreign key(u_id) references Users(u_id) on delete cascade
 );
 
 CREATE TABLE Items(
@@ -78,8 +78,8 @@ CREATE TABLE Items(
 	sv_id int not null,
 	quantity int not null,
 	primary key (i_id),
-	foreign key(p_id) references Products(p_id),
-	foreign key(o_id) references Orders(o_id)
+	foreign key(p_id) references Products(p_id) on delete cascade,
+	foreign key(o_id) references Orders(o_id) on delete cascade
 );
 
 CREATE TABLE Ratings(
@@ -90,8 +90,8 @@ CREATE TABLE Ratings(
 	rating int not null,
 	comment text not null,
 	primary key (r_id),
-	foreign key(u_id) references Users(u_id),
-	foreign key(p_id) references Products(p_id)
+	foreign key(u_id) references Users(u_id) on delete cascade,
+	foreign key(p_id) references Products(p_id) on delete cascade
 );
 
 CREATE TABLE Shopping_cart(
@@ -101,8 +101,8 @@ CREATE TABLE Shopping_cart(
 	sv_id int not null,
 	quantity int not null,
 	primary key(sc_id),
-	foreign key (u_id) references Users(u_id),
-	foreign key (p_id) references Products(p_id),
+	foreign key (u_id) references Users(u_id) on delete cascade,
+	foreign key (p_id) references Products(p_id) on delete cascade,
 	foreign key (sv_id) references Session_variable(sv_id) on delete cascade
 );
 
@@ -113,6 +113,6 @@ CREATE TABLE Returns(
 	status text not null,
 	return_dt DATETIME not null,
 	primary key(rt_id),
-	foreign key(o_id) references Orders(o_id)
+	foreign key(o_id) references Orders(o_id) on delete cascade
 );
 
